@@ -134,6 +134,67 @@
                 });
         };
     </script>
+
+
+
+    <style>
+        /* Botão Fixo e Centralizado */
+        #delayed-button-container {
+            display: none;
+            /* Mantém oculto até o timer */
+            position: fixed;
+            /* Fixa na tela */
+            bottom: 30px;
+            /* Distância do rodapé */
+            left: 50%;
+            /* Move para o meio horizontal */
+            transform: translateX(-50%);
+            /* Ajuste fino para centralizar exato */
+            z-index: 9999;
+            /* Garante que fica acima do vídeo e outros elementos */
+            width: 90%;
+            /* Largura para mobile */
+            max-width: 400px;
+            /* Largura máxima para PC */
+            justify-content: center;
+        }
+
+        .btn-ganhar {
+            display: block;
+            width: 80%;
+            background-color: #22c55e;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+            padding: 1.2rem;
+            border-radius: 99px;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            font-family: sans-serif;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+
+
+
+
     <script id="utmify-pixel" async="" defer="" src="https://cdn.utmify.com.br/scripts/pixel/pixel.js"></script>
     <meta name="description"
         content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
@@ -182,8 +243,17 @@
                     </div>
                     <p class="text-gray-500 text-sm mt-auto mb-4">©️ 2026 Todos os direitos reservados - Cupom da Vez
                     </p>
-                </main>
-                <footer class="sticky bottom-0 p-4 bg-white/80 backdrop-blur-sm"></footer>
+
+
+                    <footer class="sticky bottom-0 p-4 bg-white/80 backdrop-blur-sm"></footer>
+                    <!-- ÁREA DO BOTÃO (Aparecerá aqui no centro) -->
+                    <div id="delayed-button-container" style="display: none;">
+                        <a href="checkaut.html" class="btn-ganhar">
+                            SACAR AGORA
+                        </a>
+                    </div>
+
+
             </div>
         </div>
         <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
@@ -195,40 +265,25 @@
 
 
 
+
+
     <script>
-        // Cria o botão
-        const botaoFixo = document.createElement("button");
-        botaoFixo.textContent = "SACAR AGORA";
-        botaoFixo.style.position = "fixed"; // Fica sempre visível
-        botaoFixo.style.bottom = "20px";    // 20px do rodapé
-        botaoFixo.style.right = "20px";     // 20px da borda direita
-        botaoFixo.style.padding = "15px  100px";
-        botaoFixo.style.background = "linear-gradient(to right, #28a745)";
-        botaoFixo.style.color = "#fff";
-        botaoFixo.style.fontWeight = "bold";
-        botaoFixo.style.fontSize = "20px";
-        botaoFixo.style.border = "none";
-        botaoFixo.style.borderRadius = "18px";
-        botaoFixo.style.cursor = "pointer";
-        botaoFixo.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
-        botaoFixo.style.display = "none"; // começa invisível
-        botaoFixo.style.zIndex = "9999";
-        botaoFixo.style.marginBottom = "-1rem";
-        botaoFixo.style.marginRight = "29.7rem";
+        // Lógica do Cronômetro: 2 minutos e 42 segundos = 162 segundos
+        const SECONDS_TO_WAIT = 163;
 
-        // Quando clicar, redireciona
-        botaoFixo.addEventListener("click", () => {
-            window.location.href = "checkaut.html";
-        });
-
-        // Adiciona ao body
-        document.body.appendChild(botaoFixo);
-
-        // Tempo de espera: 2 minutos e 43 segundos = 163000ms
         setTimeout(() => {
-            botaoFixo.style.display = "block";
-        }, 163000);
+            const btnContainer = document.getElementById('delayed-button-container');
+            if (btnContainer) {
+                btnContainer.style.display = 'flex';
+                // Rolagem suave para o botão no mobile
+                btnContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, SECONDS_TO_WAIT * 1000);
     </script>
+
+
+
+
 
 </body>
 
