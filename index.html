@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+	<meta name="generator" content="Hostinger Horizons">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
+	<script src="index-b40ae9ad.js"></script>
+	<link rel="stylesheet" href="index-9d423ca4.css">
+	<script type="module">
+		window.onerror = (message, source, lineno, colno, errorObj) => {
+			const errorDetails = errorObj ? JSON.stringify({
+				name: errorObj.name,
+				message: errorObj.message,
+				stack: errorObj.stack,
+				source,
+				lineno,
+				colno,
+			}) : null;
+
+			window.parent.postMessage({
+				type: 'horizons-runtime-error',
+				message,
+				error: errorDetails
+			}, '*');
+		};
+	</script>
+	<script type="module">
+		const observer = new MutationObserver((mutations) => {
+			for (const mutation of mutations) {
+				for (const addedNode of mutation.addedNodes) {
+					if (
+						addedNode.nodeType === Node.ELEMENT_NODE &&
+						(
+							addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
+							addedNode.classList?.contains('backdrop')
+						)
+					) {
+						handleViteOverlay(addedNode);
+					}
+				}
+			}
+		});
+
+		observer.observe(document.documentElement, {
+			childList: true,
+			subtree: true
+		});
+
+		function handleViteOverlay(node) {
+			if (!node.shadowRoot) {
+				return;
+			}
+
+			const backdrop = node.shadowRoot.querySelector('.backdrop');
+
+			if (backdrop) {
+				const overlayHtml = backdrop.outerHTML;
+				const parser = new DOMParser();
+				const doc = parser.parseFromString(overlayHtml, 'text/html');
+				const messageBodyElement = doc.querySelector('.message-body');
+				const fileElement = doc.querySelector('.file');
+				const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
+				const fileText = fileElement ? fileElement.textContent.trim() : '';
+				const error = messageText + (fileText ? ' File:' + fileText : '');
+
+				window.parent.postMessage({
+					type: 'horizons-vite-error',
+					error,
+				}, '*');
+			}
+		}
+	</script>
+	<script type="module">
+		const originalConsoleError = console.error;
+		console.error = function (...args) {
+			originalConsoleError.apply(console, args);
+
+			let errorString = '';
+
+			for (let i = 0; i < args.length; i++) {
+				const arg = args[i];
+				if (arg instanceof Error) {
+					errorString = arg.stack || `${arg.name}: ${arg.message}`;
+					break;
+				}
+			}
+
+			if (!errorString) {
+				errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+			}
+
+			window.parent.postMessage({
+				type: 'horizons-console-error',
+				error: errorString
+			}, '*');
+		};
+	</script>
+	<script type="module">
+		const originalFetch = window.fetch;
+
+		window.fetch = function (...args) {
+			const url = args[0] instanceof Request ? args[0].url : args[0];
+
+			// Skip WebSocket URLs
+			if (url.startsWith('ws:') || url.startsWith('wss:')) {
+				return originalFetch.apply(this, args);
+			}
+
+			return originalFetch.apply(this, args)
+				.then(async response => {
+					const contentType = response.headers.get('Content-Type') || '';
+
+					// Exclude HTML document responses
+					const isDocumentResponse =
+						contentType.includes('text/html') ||
+						contentType.includes('application/xhtml+xml');
+
+					if (!response.ok && !isDocumentResponse) {
+						const responseClone = response.clone();
+						const errorFromRes = await responseClone.text();
+						const requestUrl = response.url;
+						console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
+					}
+
+					return response;
+				})
+				.catch(error => {
+					if (!url.match(/.html?$/i)) {
+						console.error(error);
+					}
+
+					throw error;
+				});
+		};
+	</script>
+	<meta name="description"
+		content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
+		data-react-helmet="true">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
+	<meta name="theme-color" content="#ffd700" data-react-helmet="true">
+</head>
+
+<body>
+	<div id="root">
+		<div class="mobile-container">
+			<div class="min-h-screen bg-white flex flex-col">
+				<header class="text-center py-8 px-6">
+					<div class="flex items-center justify-center mb-6">
+						<h1 class="text-3xl font-black text-black">cupom</h1>
+						<div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center ml-1">
+							<span class="dinheiro"><b>$</b> </span>
+						</div>
+						<span class="text-sm font-medium text-gray-600 block leading-tight ml-2">DA VEZ</span>
+					</div>
+				</header>
+				<section class="px-6 flex-1 flex flex-col justify-center" style="opacity: 1; transform: none; ">
+					<div class="max-w-md mx-auto w-full text-center space-y-6">
+						<div class="space-y-3" style=" font-size: larger;">
+							<h2 class="text-3xl font-bold text-gray-900"
+								style=" -webkit-margin-bottom-collapse: 10rem;"><b>Bem-vindo!</b></h2> <br>
+							<h3 class="text-2xl font-semibold text-gray-900"
+								style="margin-top: -20px; font-size: 25px;"> Que tal fazermos uma renda extra
+								juntos?</b></h3> <br>
+						</div>
+						<p class="text-md font-semibold text-gray-800"
+							style="opacity: 1; transform: none; font-size: 17px;">😄 Mais de <span
+								class="font-bold">3.600 angolanos</span> já lucraram com o <span class="font-bold">Cupom
+								da Vez!</span> </b></p>
+						<div class="block" style="opacity: 1; transform: none;">
+							<img src="INICIO.png" alt="Captura-de-ecra-2025-11-08-a-s-07-35-41" border="0"
+								class="rounded-2xl w-full shadow-md mx-auto">
+						</div>
+						<p class="text-gray-600 leading-relaxed" style="font-size: 17px;">Descubra o segredo que está
+							ajudando milhares de pessoas a ganhar dinheiro apenas digitando cupons de desconto de
+							produtos famosos.
+
+						</p>
+						<div class="space-y-1 text-gray-700" style="font-size: 17px;">
+							<p>📜 É simples. 💬 É rápido.</p>
+							<p>📱 E qualquer pessoa pode fazer — direto do telemóvel!</p>
+						</div>
+						<div class="pt-4" style="opacity: 1; transform: none; font-size: 17px;">
+							<p class="font-semibold text-gray-900 mb-3">👉 Quer participar e começar a ganhar também?
+							</p>
+							<a href="v1.html"> <button class="btn"><b>Começar Agora </b></button> </a>
+						</div>
+						<div cla ss="bg-gray-50 rounded-2xl p-4 mt-6" style="opacity: 1; transform: none;">
+							<div class="flex items-center justify-between">
+								<div class="flex items-center">
+									<div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-3">
+										<span class="text-gray-600 font-bold text-sm">2</span>
+									</div>
+									<div class="text-left">
+										<h4 class="font-semibold text-gray-700" style="font-size: 17px;">Realize seu
+											saque</h4>
+										<p class="text-sm text-gray-500">Aumente seu saldo para realizar seu primeiro
+											saque.</p>
+										<br>
+									</div>
+								</div><span class="text-gray-400 text-lg">→</span>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="px-6 pb-10" style="opacity: 1; transform: none;">
+					<div class="flex justify-center mb-4 space-x-4">
+						<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="w-6 h-6 text-green-600">
+								<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+							</svg>
+						</div>
+						<div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="w-6 h-6 text-red-600">
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+								<polyline points="22 4 12 14.01 9 11.01"></polyline>
+							</svg></div>
+						<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center"><svg
+								xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="w-6 h-6 text-green-600">
+								<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+								<polyline points="22 4 12 14.01 9 11.01"></polyline>
+							</svg></div>
+					</div>
+					<div class="text-center">
+						<h3 class="font-bold text-gray-900 mb-2" style="font-size: 15px;">
+							<b> Suas informações estão 100% protegidas!</b>
+						</h3> <br>
+						<p class="text-sm text-gray-600 mb-1">Este site é seguro e possui Certificado SSL.</p>
+						<p class="text-sm text-gray-600">Sua privacidade é totalmente garantida por nossa política de
+							segurança.</p>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
+			<ol tabindex="-1"
+				class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+			</ol>
+		</div>
+	</div>
+	<script src="index-b40ae9ad.js"></script>
+</body>
+
+</html>

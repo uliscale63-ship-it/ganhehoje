@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="generator" content="Hostinger Horizons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
+    <link rel="stylesheet" href="index-9d423ca4.css">
+    <style>
+        /* ===== OVERLAY ===== */
+        #overlayParabens {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .overlay-content {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            animation: scaleIn 0.5s ease;
+            position: relative;
+        }
+
+        .caixa-presente {
+            width: 150px;
+            animation: bounce 1s ease infinite;
+        }
+
+        .texto-parabens {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .valor-ganho {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .overlay-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .overlay-content button:hover {
+            transform: scale(1.1);
+        }
+
+        /* animações */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* ===== NOTIFICAÇÃO (CANTO INFERIOR DIREITO) ===== */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 99999;
+
+            padding: 16px 24px;
+            border-radius: 16px;
+
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+
+            color: #1f2937;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="mobile-container">
+            <div class="min-h-screen bg-white">
+                <!-- HEADER -->
+                <div class="flex justify-between items-center p-4 bg-white" style="opacity: 1;">
+                    <div class="flex items-center">
+                        <h1 class="text-2xl font-black text-black">cupom</h1>
+                        <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center ml-1">
+                            <span class="text-black font-bold text-xs">$</span>
+                        </div>
+                        <div class="ml-1">
+                            <span class="text-xs font-medium text-gray-600 block leading-tight">DA VEZ</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-gray-600">Olá, <span id="mostrarNome">Visitante</span></p>
+                        <p class="text-lg font-bold text-yellow-600">0.00 Kz</p>
+                    </div>
+                </div>
+
+                <!-- CUPOM -->
+                <div class="px-4 pb-8" style="opacity: 1;">
+                    <div class="text-center mb-4">
+                        <h2 class="text-xl font-bold text-green-600 mb-2">NOVO CUPOM ENCONTRADO!</h2>
+                        <div class="progress-dots">
+                            <div class="progress-dot active"></div>
+                            <div class="progress-dot"></div>
+                            <div class="progress-dot"></div>
+                            <div class="progress-dot"></div>
+                            <div class="progress-dot"></div>
+                            <div class="progress-dot"></div>
+                        </div>
+                    </div>
+
+                    <div class="coupon-card mb-6 fade-in" style="opacity: 1;">
+                        <div class="relative">
+                            <img src="https://horizons-cdn.hostinger.com/3750fcf7-2e15-49f4-9407-69873196af8a/b5449f3a92f476905318a21c0a5f4aea.webp"
+                                alt="Nike Air Force (Black)" class="w-full h-64 object-contain">
+                        </div>
+                    </div>
+
+                    <div class="mb-6" style="opacity: 1;">
+                        <p class="text-center text-blue-600 mb-4 flex items-center justify-center">
+                            <span class="mr-2">⬇️</span>
+                            Digite o código da imagem acima
+                            <span class="ml-2">⬇️</span>
+                        </p>
+                        <input type="number" inputmode="numeric" placeholder="Digite os 8"
+                            class="w-full px-4 py-4 border-2 border-gray-200 rounded-2xl text-lg text-center font-bold focus:border-yellow-400 focus:outline-none input-focus"
+                            maxlength="8" value="" id="cupao">
+                    </div>
+
+                    <div class="text-center mb-6" style="opacity: 1;">
+                        <div class="flex items-center justify-center mb-2">
+                            <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center mr-2">
+                                <span class="text-white text-xs">🎯</span>
+                            </div>
+                            <span class="font-semibold">Nike Air Force (Black)</span>
+                        </div>
+                        <p class="text-xl font-bold text-yellow-600">Valor a ganhar: 10.500 Kz</p>
+                    </div>
+
+                    <div tabindex="0" style="opacity: 1;">
+                        <button
+                            class="inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-2xl text-lg shadow-lg button-hover"
+                            onclick="validarCupao()">Validar Cupão </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOAST -->
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <!-- OVERLAY PARABÉNS -->
+    <div id="overlayParabens">
+        <div class="overlay-content">
+            <img src="presente.png" alt="Caixa de Presente" class="caixa-presente">
+            <h1 class="texto-parabens">Parabéns!</h1>
+            <p class="valor-ganho">Você ganhou: 0 Kz</p>
+            <button id="btnContinuar" onclick="acaoContinuar()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- ===== JS FUNCIONAL ===== -->
+    <script>
+        // Pega o nome salvo
+        const nome = localStorage.getItem("nomeUsuario");
+        document.getElementById("mostrarNome").textContent = nome ?? "Visitante";
+
+        // LISTA DE PRODUTOS
+        const produtos = [
+            { codigo: "96714954", nome: "Nike Air Force (Black)", imagem: "https://horizons-cdn.hostinger.com/3750fcf7-2e15-49f4-9407-69873196af8a/b5449f3a92f476905318a21c0a5f4aea.webp", valor: 10500 },
+            { codigo: "87526465", nome: "Nike Air Force (Rosa)", imagem: "https://horizons-cdn.hostinger.com/3750fcf7-2e15-49f4-9407-69873196af8a/a621a24909417901e1ba3b787e8d259b.webp", valor: 12000 },
+            { codigo: "94141786", nome: "JBL Caixa de Som", imagem: "https://horizons-cdn.hostinger.com/3750fcf7-2e15-49f4-9407-69873196af8a/8ff68eb842adee5d416e83d7388a0bd5.webp", valor: 21000 },
+            { codigo: "66777793", nome: "Sapato de Salto", imagem: "https://horizons-cdn.hostinger.com/3750fcf7-2e15-49f4-9407-69873196af8a/28363d3c2fc37fedb1911e0039deb7c0.webp", valor: 15000 },
+            { codigo: "67661371", nome: "Samsung Galaxy", imagem: "https://horizons-cdn.hostinger.com/3750fcf7-2e15-49f4-9407-69873196af8a/113a782acf4fea572b03eeee82fa74aa.webp", valor: 25000 },
+            { codigo: "81795889", nome: "Samsung Galaxy (Light Blue)", imagem: "https://horizons-cdn.hostinger.com/3750fcf7-2e15-49f4-9407-69873196af8a/8ec60d140da3cadb6ac0b9181ea8e59c.webp", valor: 18000 },
+        ];
+
+        let indiceAtual = 0;
+        let totalGanho = 0;
+        let ultimoCupom = false;
+
+        // ELEMENTOS
+        const inputCupao = document.getElementById("cupao");
+        const imgProduto = document.querySelector(".coupon-card img");
+        const nomeProduto = document.querySelector(".font-semibold");
+        const valorProduto = document.querySelector(".text-xl.font-bold.text-yellow-600");
+        const totalTopo = document.querySelector(".text-lg.font-bold.text-yellow-600");
+        const progressDots = document.querySelectorAll(".progress-dot");
+        const textoCupom = document.querySelector(".text-gray-600");
+
+        const somDinheiro = new Audio("https://infoescala.online/wp-content/uploads/2025/11/cashier-quotka-chingquot-sound-effect-129698.mp3");
+
+        function formatarKz(valor) {
+            return valor.toLocaleString("pt-AO");
+        }
+
+        function mostrarToast(mensagem) {
+            const toast = document.getElementById("toast");
+            toast.textContent = mensagem;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2500);
+        }
+
+        function atualizarProduto(produto) {
+            imgProduto.src = produto.imagem;
+            imgProduto.alt = produto.nome;
+            nomeProduto.textContent = produto.nome;
+            valorProduto.textContent = "Valor a ganhar: " + formatarKz(produto.valor) + " Kz";
+        }
+
+        function mostrarOverlay(valor) {
+            const overlay = document.getElementById("overlayParabens");
+            overlay.style.display = "flex";
+            overlay.querySelector(".valor-ganho").textContent = `Você ganhou: ${formatarKz(valor)} Kz`;
+            somDinheiro.play();
+        }
+
+        function validarCupao() {
+            const codigoDigitado = inputCupao.value.trim();
+            const produtoAtual = produtos[indiceAtual];
+
+            if (!codigoDigitado) {
+                mostrarToast("Por favor, digite o código do Cupom");
+                return;
+            }
+
+            if (!produtoAtual || codigoDigitado !== produtoAtual.codigo) {
+                mostrarToast("Cupão inválido");
+                return;
+            }
+
+            // Código correto
+            totalGanho += produtoAtual.valor;
+            totalTopo.textContent = formatarKz(totalGanho) + " Kz";
+
+            mostrarOverlay(produtoAtual.valor);
+
+            // Atualiza progress
+            progressDots[indiceAtual].classList.remove("active");
+            if (progressDots[indiceAtual + 1]) progressDots[indiceAtual + 1].classList.add("active");
+
+            indiceAtual++;
+            if (produtos[indiceAtual]) {
+                atualizarProduto(produtos[indiceAtual]);
+            } else {
+                ultimoCupom = true;
+            }
+
+            inputCupao.value = "";
+        }
+
+        function acaoContinuar() {
+            const overlay = document.getElementById("overlayParabens");
+            overlay.style.display = "none";
+
+            if (ultimoCupom) {
+                window.location.href = "limite-diario.html";
+            }
+        }
+    </script>
+
+
+
+
+    <script>
+        function mostrarToast(mensagem, tipo = "info") {
+            const toast = document.getElementById("toast");
+            toast.textContent = mensagem;
+
+            // Remove classes anteriores
+            toast.classList.remove("show", "toast-vazio", "toast-erro", "toast-sucesso");
+
+            // Define cor de fundo baseada no tipo
+            switch (tipo) {
+                case "vazio":
+                    toast.style.background = "#FFD700"; // amarelo
+                    toast.style.color = "#000";
+                    break;
+                case "erro":
+                    toast.style.background = "#FF4C4C"; // vermelho
+                    toast.style.color = "#fff";
+                    break;
+                case "sucesso":
+                    toast.style.background = "#28a745"; // verde
+                    toast.style.color = "#fff";
+                    break;
+                default:
+                    toast.style.background = "rgba(255,255,255,0.85)";
+                    toast.style.color = "#333";
+            }
+
+            toast.classList.add("show");
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+        }
+
+        function validarCupao() {
+            const codigoDigitado = inputCupao.value.trim();
+            const produtoAtual = produtos[indiceAtual];
+
+            if (!codigoDigitado) {
+                mostrarToast("Por favor, digite o código do Cupom", "vazio");
+                return;
+            }
+
+            if (!produtoAtual || codigoDigitado !== produtoAtual.codigo) {
+                mostrarToast("Cupão inválido", "erro");
+                return;
+            }
+
+            // Código correto
+            totalGanho += produtoAtual.valor;
+            totalTopo.textContent = formatarKz(totalGanho) + " Kz";
+
+            mostrarOverlay(produtoAtual.valor);
+            mostrarToast("Cupão válido! 🎉", "sucesso");
+
+            // Atualiza bolinhas
+            progressDots[indiceAtual].classList.remove("active");
+            if (progressDots[indiceAtual + 1]) progressDots[indiceAtual + 1].classList.add("active");
+
+            indiceAtual++;
+            if (produtos[indiceAtual]) {
+                atualizarProduto(produtos[indiceAtual]);
+            } else {
+                ultimoCupom = true;
+            }
+
+            inputCupao.value = "";
+        }
+    </script>
+
+
+</body>
+
+</html>

