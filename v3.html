@@ -201,18 +201,48 @@
 
 
 
- <script>
-        // Lógica do Cronômetro: 3 minutos e 10 segundos = 190 segundos
-        const SECONDS_TO_WAIT = 163;
+<script>
+        // === BOTÃO CONTINUAR COM DELAY ===
+        const botao = document.getElementById("btnContinuar");
+
+        // garante que começa escondido
+        botao.style.display = "none";
+
+        const TEMPO_ESPERA = 33 * 1000; // 38 segundos
 
         setTimeout(() => {
-            const btnContainer = document.getElementById('delayed-button-container');
-            if (btnContainer) {
-                btnContainer.style.display = 'flex';
-                // Rolagem suave para o botão no mobile
-                btnContainer.scrollIntoView({ behavior: 'smooth' });
+            botao.style.display = "inline-flex";
+
+            // opcional: tocar som quando o botão aparece
+            if (typeof som !== "undefined") {
+                som.play().catch(() => console.log("Som bloqueado pelo navegador"));
             }
-        }, SECONDS_TO_WAIT * 1000);
+        }, TEMPO_ESPERA);
+
+        function continuar() {
+            window.location.href = "v31.html";
+        }
+
+        // === AUTOPLAY DO VÍDEO AO CARREGAR A PÁGINA ===
+        window.addEventListener("load", () => {
+            const iframe = document.getElementById("panda-ec73424f-28df-4249-84f0-96d14ad3fc33");
+
+            // Modifica src para garantir autoplay e som
+            if (iframe) {
+                let src = iframe.src;
+
+                // remove parâmetro muted=1 e adiciona autoplay=1
+                if (!src.includes("autoplay=1")) {
+                    src += (src.includes("?") ? "&" : "?") + "autoplay=1";
+                }
+                src = src.replace("&muted=1", "&muted=0");
+
+                iframe.src = src;
+            }
+        });
+
+
+
     </script>
 
 
