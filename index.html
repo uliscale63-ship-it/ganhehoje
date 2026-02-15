@@ -9,6 +9,8 @@
 	<title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
 	<script src="index-b40ae9ad.js"></script>
 	<link rel="stylesheet" href="index-9d423ca4.css">
+
+	<!-- Seus scripts type="module existentes -->
 	<script type="module">
 		window.onerror = (message, source, lineno, colno, errorObj) => {
 			const errorDetails = errorObj ? JSON.stringify({
@@ -50,9 +52,7 @@
 		});
 
 		function handleViteOverlay(node) {
-			if (!node.shadowRoot) {
-				return;
-			}
+			if (!node.shadowRoot) return;
 
 			const backdrop = node.shadowRoot.querySelector('.backdrop');
 
@@ -104,7 +104,6 @@
 		window.fetch = function (...args) {
 			const url = args[0] instanceof Request ? args[0].url : args[0];
 
-			// Skip WebSocket URLs
 			if (url.startsWith('ws:') || url.startsWith('wss:')) {
 				return originalFetch.apply(this, args);
 			}
@@ -112,8 +111,6 @@
 			return originalFetch.apply(this, args)
 				.then(async response => {
 					const contentType = response.headers.get('Content-Type') || '';
-
-					// Exclude HTML document responses
 					const isDocumentResponse =
 						contentType.includes('text/html') ||
 						contentType.includes('application/xhtml+xml');
@@ -136,29 +133,34 @@
 				});
 		};
 	</script>
+
 	<meta name="description"
 		content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
 		data-react-helmet="true">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
 	<meta name="theme-color" content="#ffd700" data-react-helmet="true">
 
-<script>
-  window.pixelId = "69919a844c4235367c1cf45a";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
+	<!-- ========================== -->
+	<!-- Pixel UTMify -->
+	<script>
+		window.pixelId = "69919a844c4235367c1cf45a";
+		var a = document.createElement("script");
+		a.setAttribute("async", "");
+		a.setAttribute("defer", "");
+		a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+		document.head.appendChild(a);
+	</script>
 
+	<!-- UTMs -->
 	<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-	
+		src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+		data-utmify-prevent-xcod-sck
+		data-utmify-prevent-subids
+		async
+		defer
+	></script>
+	<!-- ========================== -->
+
 </head>
 
 <body>
@@ -194,7 +196,6 @@
 						<p class="text-gray-600 leading-relaxed" style="font-size: 17px;">Descubra o segredo que está
 							ajudando milhares de pessoas a ganhar dinheiro apenas digitando cupons de desconto de
 							produtos famosos.
-
 						</p>
 						<div class="space-y-1 text-gray-700" style="font-size: 17px;">
 							<p>📜 É simples. 💬 É rápido.</p>
@@ -267,15 +268,4 @@
 	<script src="index-b40ae9ad.js"></script>
 </body>
 
-
 </html>
-
-
-
-
-
-
-
-
-
-
