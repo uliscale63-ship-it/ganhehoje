@@ -7,11 +7,26 @@
 	<meta name="generator" content="Hostinger Horizons">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
+	<!-- UTMify Pixel -->
+	<script>
+  window.pixelId = "69949ad68f6e2b4ecd263ef0";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+	</script>
+	
+	<!-- UTMify UTMs Script -->
+	<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+	></script>
 	<script src="index-b40ae9ad.js"></script>
 	<link rel="stylesheet" href="index-9d423ca4.css">
-
-	
-	<!-- Seus scripts type="module existentes -->
 	<script type="module">
 		window.onerror = (message, source, lineno, colno, errorObj) => {
 			const errorDetails = errorObj ? JSON.stringify({
@@ -53,7 +68,9 @@
 		});
 
 		function handleViteOverlay(node) {
-			if (!node.shadowRoot) return;
+			if (!node.shadowRoot) {
+				return;
+			}
 
 			const backdrop = node.shadowRoot.querySelector('.backdrop');
 
@@ -105,6 +122,7 @@
 		window.fetch = function (...args) {
 			const url = args[0] instanceof Request ? args[0].url : args[0];
 
+			// Skip WebSocket URLs
 			if (url.startsWith('ws:') || url.startsWith('wss:')) {
 				return originalFetch.apply(this, args);
 			}
@@ -112,6 +130,8 @@
 			return originalFetch.apply(this, args)
 				.then(async response => {
 					const contentType = response.headers.get('Content-Type') || '';
+
+					// Exclude HTML document responses
 					const isDocumentResponse =
 						contentType.includes('text/html') ||
 						contentType.includes('application/xhtml+xml');
@@ -134,13 +154,28 @@
 				});
 		};
 	</script>
-
 	<meta name="description"
 		content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
 		data-react-helmet="true">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
 	<meta name="theme-color" content="#ffd700" data-react-helmet="true">
-	
+	<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1641274440558297');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1641274440558297&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -176,6 +211,7 @@
 						<p class="text-gray-600 leading-relaxed" style="font-size: 17px;">Descubra o segredo que está
 							ajudando milhares de pessoas a ganhar dinheiro apenas digitando cupons de desconto de
 							produtos famosos.
+
 						</p>
 						<div class="space-y-1 text-gray-700" style="font-size: 17px;">
 							<p>📜 É simples. 💬 É rápido.</p>
@@ -184,7 +220,7 @@
 						<div class="pt-4" style="opacity: 1; transform: none; font-size: 17px;">
 							<p class="font-semibold text-gray-900 mb-3">👉 Quer participar e começar a ganhar também?
 							</p>
-							<a href="cadastro.html"> <button class="btn"><b>Começar Agora </b></button> </a>
+							<a href="v1.html"> <button class="btn"><b>Começar Agora </b></button> </a>
 						</div>
 						<div cla ss="bg-gray-50 rounded-2xl p-4 mt-6" style="opacity: 1; transform: none;">
 							<div class="flex items-center justify-between">
@@ -249,6 +285,3 @@
 </body>
 
 </html>
-
-
-
